@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SkillPro Institute</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header id="main-header">
+        <nav class="container">
+            <a href="index.html" class="logo">Skill<span class="logo-pro">Pro</span></a>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="courses.html" class="nav-link">Courses</a></li>
+                <li><a href="instructors.html" class="nav-link">Instructors</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li id="auth-link-container"><a href="login.html" class="btn btn-secondary">Login / Sign Up</a></li>
+                <li>
+                    <div class="theme-switch">
+                        <input type="checkbox" id="theme-checkbox" />
+                        <label for="theme-checkbox" class="slider round">
+                             <span class="icon sun"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+                            <span class="icon moon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section-padding">
+        <h1 class="page-title">Get in Touch</h1>
+        <div class="card-grid" style="grid-template-columns: 2fr 1fr; align-items: start; gap: 2rem;">
+            <div class="card">
+                <h2>Send us a Message</h2>
+                <form id="contact-form">
+                    <div class="form-group"><label for="name">Name</label><input type="text" id="name" required></div>
+                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+                    <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5" required></textarea></div>
+                    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Contact Information</h3>
+                <p><strong>Colombo Branch:</strong><br>No. 123, Galle Road, Colombo 03</p>
+                <p><strong>Phone:</strong><br>+94 11 234 5678</p>
+                <p><strong>Email:</strong><br>info@skillpro.lk</p>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/94771234567" target="_blank" title="WhatsApp">
+                        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#25D366" d="M12.04 2A10.04 10.04 0 0 0 2 12.04c0 3.32 1.62 6.27 4.1 8.12L2 22l2.03-1.95A10.02 10.02 0 0 0 12.04 22a10.04 10.04 0 0 0 0-20.08z"/><path fill="#FFF" d="M9.23 7.21c-.23-.48-.48-.5-1.12-.51-.58 0-1.04.23-1.04 1.28 0 1.04.59 2.44 1.28 3.58.91 1.51 2.21 3.19 4.86 4.31 2.26.96 2.87.89 3.44.59.57-.3 1.04-1.28 1.19-2.44.15-1.16-.06-1.59-.23-1.74-.17-.15-.38-.23-.79-.43s-2.52-1.24-2.91-1.39c-.39-.15-.65-.23-.91.23-.26.46-.99 1.28-1.21 1.51-.22.23-.43.26-.79.08-.36-.17-1.51-.55-2.87-1.76a10.33 10.33 0 0 1-2-2.31c-.22-.38-.03-.58.15-.76.16-.16.35-.43.53-.65.17-.21.23-.38.38-.64s.08-.48-.03-.68c-.11-.2-.65-1.51-.88-2.05z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" title="Facebook">
+                        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-1.5c-.84 0-1 .16-1 .82V12h2.5l-.5 3h-2v6.95c5.05-.95 9-5.46 9-9.95z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" title="LinkedIn">
+                         <svg width="32" height="32" viewBox="0 0 24 24"><path fill="#0077B5" d="M20.45 2h-16.9C2.69 2 2 2.7 2 3.55v16.9C2 21.3 2.69 22 3.55 22h16.9c.86 0 1.55-.7 1.55-1.55V3.55C22 2.7 21.31 2 20.45 2zM8.07 18.94h-3.1v-9.4h3.1v9.4zM6.52 8.04a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm12.42 10.9h-3.1v-4.67c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.75h-3.1v-9.4h2.97v1.36h.04c.42-.79 1.42-1.63 2.93-1.63 3.13 0 3.71 2.06 3.71 4.74v5.47z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" title="Instagram">
+                        <svg width="32" height="32" viewBox="0 0 24 24"><defs><radialGradient id="ig-grad" cx=".3" cy="1.2" r="1.3"><stop offset="0" stop-color="#FDF497"/><stop offset=".1" stop-color="#FDF497"/><stop offset=".4" stop-color="#FD5949"/><stop offset=".7" stop-color="#D6249F"/><stop offset=".9" stop-color="#285AEB"/></radialGradient></defs><path fill="url(#ig-grad)" d="M12 2c2.72 0 3.06.01 4.12.06c1.07.05 1.79.22 2.42.46c.66.25 1.22.6 1.77 1.15c.55.55.9 1.11 1.15 1.77c.24.63.41 1.35.46 2.42c.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.79-.46 2.42c-.25.66-.6 1.22-1.15 1.77c-.55.55-1.11.9-1.77 1.15c-.63.24-1.35.41-2.42.46c-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.79-.22-2.42-.46c-.66-.25-1.22-.6-1.77-1.15c-.55-.55-.9-1.11-1.15-1.77c-.24-.63-.41-1.35-.46-2.42c-.05-1.06-.06-1.4-.06-4.12s.01-3.06.06-4.12c.05-1.07.22-1.79.46-2.42c.25-.66.6-1.22 1.15-1.77c.55-.55 1.11-.9 1.77-1.15c.63-.24 1.35-.41 2.42.46c1.06-.05 1.4-.06 4.12-.06m0-2c-2.76 0-3.1.01-4.18.06c-1.1.05-1.84.25-2.49.52c-.67.27-1.3.64-1.89 1.23c-.6.6-.96 1.22-1.23 1.89c-.27.65-.47 1.39-.52 2.49C2.01 8.9 2 9.24 2 12s.01 3.1.06 4.18c.05 1.1.25 1.84.52 2.49c.27.67.64 1.3 1.23 1.89c.6.6 1.22.96 1.89 1.23c.65.27 1.39.47 2.49.52c1.08.05 1.42.06 4.18.06s3.1-.01 4.18-.06c1.1-.05 1.84-.25 2.49-.52c.67-.27 1.3-.64 1.89-1.23c.6-.6.96-1.22 1.23-1.89c.27-.65.47-1.39.52-2.49c.05-1.08.06-1.42.06-4.18s-.01-3.1-.06-4.18c-.05-1.1-.25-1.84-.52-2.49c-.27-.67-.64-1.3-1.23-1.89c-.6-.6-1.22-.96-1.89-1.23c-.65-.27-1.39-.47-2.49-.52C15.1 2.01 14.76 2 12 2z"/><path fill="url(#ig-grad)" d="M12 7.27a4.73 4.73 0 1 0 4.73 4.73A4.73 4.73 0 0 0 12 7.27zm0 7.46a2.73 2.73 0 1 1 2.73-2.73a2.73 2.73 0 0 1-2.73 2.73z"/><circle fill="url(#ig-grad)" cx="16.97" cy="7.03" r="1.14"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="main-footer"><p>&copy; 2025 SkillPro Institute. All Rights Reserved.</p></footer>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets.js/theme.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) { /* existing form logic */ });
+    </script>
+</body>
+</html>
