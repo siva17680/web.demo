@@ -1,58 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const instructorGrid = document.getElementById('instructor-grid');
     const loader = document.getElementById('loader-wrapper');
-    if (!instructorGrid) return;
+    const userNameDisplay = document.getElementById('user-name');
+    const logoutBtn = document.getElementById('logout-btn');
 
-    // ** FIX: Show loader before fetching data **
+    // Show loader immediately on page entry
     if (loader) {
         loader.style.display = 'flex';
         loader.style.opacity = '1';
     }
 
-    const instructorsRef = db.ref('instructors');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in, check their role from the database
+            db.ref('users/' + user.uid).once('value').then(snapshot => {
+                const userData = snapshot.val();
 
-    instructorsRef.on('value', (snapshot) => {
-        instructorGrid.innerHTML = '';
-        if (snapshot.exists()) {
-            const instructorsData = snapshot.val();
-            for (const id in instructorsData) {
-                const instructor = instructorsData[id];
-                const card = document.createElement('div');
-                card.className = 'instructor-card animate-on-scroll';
-                card.innerHTML = `
-                    <img src="${instructor.imageUrl || 'https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=2070&auto=format&fit=crop'}" alt="${instructor.name}">
-                    <div class="instructor-info">
-                        <h3>${instructor.name}</h3>
-                        <span>${instructor.expertise}</span>
-                    </div>
-                `;
-                instructorGrid.appendChild(card);
-                observer.observe(card);
-            }
+                // Check if user data exists and their role is 'instructor'
+                if (userData && userData.role === 'instructor') {
+                    if (userNameDisplay) {
+                        userNameDisplay.textContent = `Welcome, ${userData.name || 'Instructor'}`;
+                    }
+                    // Page is authorized, hide the loader
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(() => { loader.style.display = 'none'; }, 500);
+                    }
+                    // TODO: Add functions here to load instructor-specific data
+                } else {
+                    // Not an instructor or role not found, redirect to login
+                    alert("Access Denied. You are not registered as an instructor.");
+                    window.location.href = 'login.html';
+                }
+            }).catch(error => {
+                console.error("Firebase read error:", error);
+                alert("Could not verify your role. Please try again.");
+                window.location.href = 'login.html';
+            });
         } else {
-            instructorGrid.innerHTML = '<p>No instructors found.</p>';
-        }
-
-        // ** FIX: Hide loader after data is fetched and displayed **
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-        }
-    }, (error) => {
-        console.error("Firebase Read Error:", error);
-        instructorGrid.innerHTML = '<p>Could not load instructors due to a database error.</p>';
-        // ** FIX: Hide loader even if there is an error **
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
+            // No user is signed in. Redirect to login page.
+            window.location.href = 'login.html';
         }
     });
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            auth.signOut().then(() => {
+                window.location.href = 'index.html';
+            });
+        });
+    }
 });

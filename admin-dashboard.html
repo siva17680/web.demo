@@ -13,6 +13,7 @@
 <body>
     <div id="loader-wrapper"><div class="spinner"></div></div>
 
+    <!-- Dashboard Header -->
     <header class="main-header">
         <div class="container">
             <nav class="main-nav">
@@ -41,95 +42,93 @@
             <div id="alert-message" class="alert-message" style="display: none;"></div>
 
             <div class="dashboard-grid-full">
+                <!-- Manage Courses Card -->
                 <div class="dashboard-card animate-on-scroll">
                     <div class="card-header">
-                        <h3><i class="bi bi-book-half"></i> Manage Courses</h3>
+                        <h3 id="course-form-title"><i class="bi bi-book-half"></i> Manage Courses</h3>
                         <div class="search-wrapper">
                             <i class="bi bi-search"></i>
                             <input type="text" id="course-search" placeholder="Search courses...">
                         </div>
                     </div>
                     <form id="add-course-form" class="management-form">
+                        <input type="hidden" id="edit-course-id">
                         <div class="form-row">
                             <input type="text" id="course-title" placeholder="Course Title" required>
-                            <input type="text" id="course-category" placeholder="Category (e.g., Technology)" required>
+                            <input type="text" id="course-category" placeholder="Category" required>
                         </div>
                         <div class="form-row">
-                            <input type="text" id="course-duration" placeholder="Duration (e.g., 6 Months)" required>
-                            <input type="text" id="course-mode" placeholder="Mode (e.g., Hybrid)" required>
+                            <input type="text" id="course-duration" placeholder="Duration" required>
+                            <input type="text" id="course-mode" placeholder="Mode" required>
                             <input type="url" id="course-image-url" placeholder="Image URL" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Course</button>
+                        <button type="submit" id="submit-course-btn" class="btn btn-primary">Add Course</button>
+                        <button type="button" id="cancel-course-edit-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
                     </form>
                     <div class="management-table-wrapper">
                         <table id="courses-table">
-                            <thead><tr><th>Title</th><th>Category</th><th>Duration</th><th>Action</th></tr></thead>
+                            <thead><tr><th>Title</th><th>Category</th><th>Duration</th><th>Actions</th></tr></thead>
                             <tbody></tbody>
                         </table>
                     </div>
                 </div>
 
+                <!-- Manage Instructors Card -->
                 <div class="dashboard-card animate-on-scroll">
                     <div class="card-header">
-                        <h3><i class="bi bi-person-video3"></i> Manage Instructors</h3>
+                        <h3><i class="bi bi-person-video3"></i> Manage Public Instructor Profiles</h3>
                         <div class="search-wrapper">
                             <i class="bi bi-search"></i>
                             <input type="text" id="instructor-search" placeholder="Search instructors...">
                         </div>
                     </div>
-                     <form id="add-instructor-form" class="management-form">
-                        <div class="form-row">
-                            <input type="text" id="instructor-name" placeholder="Instructor Name" required>
-                            <input type="text" id="instructor-expertise" placeholder="Expertise (e.g., Lead, Software Engineering)" required>
-                        </div>
-                        <div class="form-row">
-                             <input type="url" id="instructor-image-url" placeholder="Image URL" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Instructor</button>
-                    </form>
-                     <div class="management-table-wrapper">
+                    <div class="management-table-wrapper">
                         <table id="instructors-table">
-                            <thead><tr><th>Name</th><th>Expertise</th><th>Action</th></tr></thead>
+                            <thead><tr><th>Name</th><th>Expertise</th><th>Actions</th></tr></thead>
                             <tbody></tbody>
                         </table>
                     </div>
                 </div>
                 
+                <!-- Manage Events Card -->
                 <div class="dashboard-card animate-on-scroll">
-                    <div class="card-header">
-                        <h3><i class="bi bi-calendar-event-fill"></i> Manage Events</h3>
+                     <div class="card-header">
+                        <h3 id="event-form-title"><i class="bi bi-calendar-event-fill"></i> Manage Events</h3>
                         <div class="search-wrapper">
                             <i class="bi bi-search"></i>
                             <input type="text" id="event-search" placeholder="Search events...">
                         </div>
                     </div>
                      <form id="add-event-form" class="management-form">
+                        <input type="hidden" id="edit-event-id">
                         <div class="form-row">
                             <input type="text" id="event-title" placeholder="Event Title" required>
                             <input type="date" id="event-date" required>
                         </div>
                          <textarea id="event-description" rows="3" placeholder="Event Description" required></textarea>
-                        <button type="submit" class="btn btn-primary">Add Event</button>
+                        <button type="submit" id="submit-event-btn" class="btn btn-primary">Add Event</button>
+                        <button type="button" id="cancel-event-edit-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
                     </form>
                     <div class="management-table-wrapper">
                         <table id="events-table">
-                            <thead><tr><th>Date</th><th>Title</th><th>Description</th><th>Action</th></tr></thead>
+                            <thead><tr><th>Date</th><th>Title</th><th>Description</th><th>Actions</th></tr></thead>
                             <tbody></tbody>
                         </table>
                     </div>
                 </div>
 
+                <!-- Manage Users Card -->
                 <div class="dashboard-card animate-on-scroll">
                     <div class="card-header">
-                        <h3><i class="bi bi-people-fill"></i> Manage Users</h3>
+                        <h3><i class="bi bi-people-fill"></i> Manage User Accounts</h3>
                         <div class="search-wrapper">
                             <i class="bi bi-search"></i>
-                            <input type="text" id="user-search" placeholder="Search users by name or email...">
+                            <input type="text" id="user-search" placeholder="Search users...">
                         </div>
                     </div>
                     <div class="management-table-wrapper">
                         <table id="users-table">
-                            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Action</th></tr></thead>
+                            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
                             <tbody></tbody>
                         </table>
                     </div>
@@ -137,6 +136,26 @@
             </div>
         </section>
     </main>
+    
+    <!-- Course Assignment Modal -->
+    <div id="assignment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-instructor-name">Assign Courses to [Instructor]</h3>
+                <button id="modal-close-btn" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>Currently Assigned</h4>
+                <div id="assigned-courses-list"><p>No courses assigned yet.</p></div>
+                <hr>
+                <h4>Assign New Course</h4>
+                <div class="assign-form-group">
+                    <select id="unassigned-courses-select"><option value="">Select an available course...</option></select>
+                    <button id="assign-course-btn" class="btn btn-primary">Assign</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <footer class="main-footer">
         <div class="container"><p>&copy; 2025 SkillPro Institute.</p></div>
@@ -151,3 +170,4 @@
     <script src="assets/js/admin.js"></script>
 </body>
 </html>
+
