@@ -160,7 +160,7 @@ input[type="date"] { color: var(--text-color); }
 .search-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #aaa; }
 .search-wrapper input { padding: 0.75rem 1rem 0.75rem 2.5rem; border: 1px solid var(--border-color); border-radius: 6px; background-color: var(--bg-color); color: var(--text-color); font-size: 1rem; min-width: 250px; }
 
-/* --- LOGIN PAGE --- */
+/* --- LOGIN PAGE (CORRECTED & FINAL) --- */
 .login-page-body {
     display: flex;
     justify-content: center;
@@ -171,14 +171,18 @@ input[type="date"] { color: var(--text-color); }
 }
 .auth-wrapper {
     width: 100%;
-    max-width: 480px; /* Mobile-first: single column card */
+    max-width: 480px; /* Mobile-first: single column */
     min-height: auto;
     box-shadow: var(--shadow);
     border-radius: 12px;
     overflow: hidden;
     background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
 }
-.auth-image-panel { display: none; }
+.auth-image-panel {
+    display: none; /* Hide on mobile by default */
+}
 .auth-form-panel {
     width: 100%;
     padding: 2rem;
@@ -249,17 +253,39 @@ input[type="date"] { color: var(--text-color); }
     .login-btn-mobile { display: block; margin-top: 1.5rem; }
     .login-btn-mobile .btn { width: 100%; }
 }
+/* ** FIX: Use a more common breakpoint for tablets/desktops ** */
 @media (min-width: 992px) {
     .auth-wrapper {
         display: flex;
         flex-direction: row;
         max-width: 1000px;
+        min-height: 650px;
     }
     .auth-image-panel {
         display: flex;
         flex: 1;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 3rem;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-between;
     }
+    .auth-image-panel::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    }
+    .auth-image-panel .logo {
+        position: relative; z-index: 1; font-size: 1.5rem;
+        font-weight: 700; color: white; text-decoration: none;
+    }
+    .auth-image-content { position: relative; z-index: 1; }
+    .auth-image-content h2 { font-size: 2rem; }
     .auth-form-panel {
         flex: 1.2;
     }
 }
+
